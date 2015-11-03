@@ -135,7 +135,6 @@
         document.getElementById("btn_stop").disabled = true;
       }
 
-
       function rtmpOnConnectFail() {
         console.log("rtmp connect fail");
         loseConnection();
@@ -154,26 +153,33 @@
     </script>
   </head>
   <body>
-    <h1>RTMP推流到云端演示</h1>
-    <div id="rtmp-publisher">
-      <p>Flash not installed</p>
+    <div align="center">
+      <h1>RTMP推流到直播云演示</h1>
+      <div>
+        <a href="https://github.com/WoAnTech/zby-rtmp-publisher">本演示的代码仓库</a> | <a href="http://www.zhiboyun.com">直播云网站</a>
+      </div>
+ 
+      <div id="rtmp-publisher">
+        <p>Flash not installed</p>
+      </div>
+      <div>
+        收流地址：<input type="text" id="streamer" size="51" value='rtmp://xvs-tcp-input.zhiboyun.com/live'></input>
+        <br/>
+        禁用视频<input type="checkbox" id="disable_video" ></input> &nbsp;
+        禁用音频<input type="checkbox" id="disable_audio" ></input> <br/>
+        用户名：<input type="text" id="user_name" value="" size="6" value=""></input>
+        密码：<input type="text" id="password" value="" size="6" value="" ></input>
+        服务码: <input type="text" id="service_code" value="" size="12" value=""></input>
+        输出标签: <input type="text" id="output_tags" size="12" value=""></input> <br/> <br/>
+        透传字串: <textarea id="opaque" cols="39" value=""></textarea> <br/> <br/>
+        <div>
+          <button onclick="connect(true);" id="btn_connect_start">连接并开始</button> 
+          <button onclick="connect(false);" id="btn_connect">连接</button> 
+          <button onclick="startPublish();" disabled id="btn_start">开始推送</button> 
+          <button onclick="stopPublish();" disabled id="btn_stop">停止推送</button> 
+          <button onclick="closeRtmp();" disabled id="btn_close">关闭</button> 
+        </div>
+      </div>
     </div>
-    <div>
-    收流地址：<input type="text" id="streamer" size="51" value='rtmp://xvs-tcp-input.zhiboyun.com/live'></input>
-    <br/>
-    禁用视频<input type="checkbox" id="disable_video" ></input> &nbsp;
-    禁用音频<input type="checkbox" id="disable_audio" ></input> <br/>
-    用户名：<input type="text" id="user_name" value="" size="6" value=""></input>
-    密码：<input type="text" id="password" value="" size="6" value="" ></input>
-    服务码: <input type="text" id="service_code" value="" size="12" value=""></input>
-    输出标签: <input type="text" id="output_tags" size="12" value=""></input> <br/> <br/>
-    透传字串: <textarea id="opaque" cols="39" value=""></textarea> <br/> <br/>
-    <div>
-      <button onclick="connect(true);" id="btn_connect_start">连接并开始</button> 
-      <button onclick="connect(false);" id="btn_connect">连接</button> 
-      <button onclick="startPublish();" disabled id="btn_start">开始推送</button> 
-      <button onclick="stopPublish();" disabled id="btn_stop">停止推送</button> 
-      <button onclick="closeRtmp();" disabled id="btn_close">关闭</button> 
-    </div>
-    </div>
-  </body> </html>
+  </body> 
+</html>
